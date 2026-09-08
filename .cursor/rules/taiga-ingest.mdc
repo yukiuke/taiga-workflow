@@ -1,0 +1,19 @@
+---
+description: Hard constraints for the Taiga ingest pipeline — manual trigger, finite EOL, dry-run before writes, human-review flags.
+alwaysApply: true
+---
+
+# Taiga ingest constraints
+
+When working in this repository on requirements ingest or Taiga ticket creation:
+
+1. **Manual trigger only.** Do not start the ingest pipeline unless the user explicitly asks (e.g. `/ingest-requirements`, "ingest these notes", "create Taiga tickets from…").
+2. **Finite EOL.** After Architect → Challenger → Product Owner (automated subagent chain) and either dry-run or apply, **stop**. Do not loop, re-ingest, or start implementing tickets unless the user starts a new request.
+3. **Automated passes, single human gate.** After kickoff, run Passes 1–3 without asking for confirmation between them. **Pause** after validate/dry-run for human clearance before any Taiga MCP **write** tools.
+4. **Dry-run first.** Default to `python -m tools.taiga_ingest dry-run` and `.ai/dry_run_plan.md`. Never apply writes on the first pass unless the user already said "apply to Taiga" **and** has seen the summary.
+5. **Refuse invalid payloads.** If validate fails, do not call MCP write tools.
+6. **Human review flagging.** If input is underspecified or audit confidence &lt; 0.8, flag in the user-facing summary **and** ensure ticket descriptions include the ALL-CAPS `[HUMAN REVIEW NEEDED]` warning banner.
+7. **MCP transport.** Prefer the configured Taiga MCP server (SSH stdio). Do not suggest exposing MCP over public HTTP.
+8. **Artifact audit trail.** Preserve `.ai/raw_notes.md`, `draft_spec.md`, `audit_report.md`, `taiga_payload.json`, and dry-run/apply outputs for debugging.
+9. **Out of scope.** Do not run the "work on tickets" / Verification Agent flow as part of ingest.
+10. **Token control.** Keep the pre-apply summary brief. Prefer `verbosity: minimal` on MCP reads.

@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "taiga": {
+      "command": "ssh",
+      "args": [
+        "-i",
+        "~/.ssh/vps_taiga_key",
+        "-T",
+        "deploy@YOUR_VPS_IP_OR_HOSTNAME",
+        "docker exec -i taiga-mcp python /app/src/server_workflow.py"
+      ]
+    }
+  }
+}

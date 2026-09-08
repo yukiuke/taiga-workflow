@@ -1,0 +1,40 @@
+{
+  "project_slug": "demo-app",
+  "velocity": {
+    "sprint_capacity_points": 8,
+    "notes": "Fixture intentionally over capacity"
+  },
+  "sprints": [
+    {
+      "name": "Sprint 1",
+      "estimated_start": "2026-08-04",
+      "estimated_finish": "2026-08-17"
+    }
+  ],
+  "epics": [
+    {
+      "temp_id": "E1",
+      "subject": "Reporting",
+      "description": "Theme: analytics exports.",
+      "stories": [
+        {
+          "temp_id": "US1",
+          "subject": "Ship CSV export somehow",
+          "description": "Export stuff.",
+          "needs_human_review": true,
+          "points": 13,
+          "sprint_name": "Sprint 1",
+          "tasks": [
+            {
+              "temp_id": "T1",
+              "subject": "Do the export",
+              "description": "Vague task"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "warnings": [],
+  "summary": "Invalid fixture for semantic failure cases."
+}

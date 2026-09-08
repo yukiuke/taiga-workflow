@@ -1,0 +1,38 @@
+# Runtime agent artifacts (keep directory via .gitkeep)
+.ai/*
+!.ai/.gitkeep
+
+# Secrets / local MCP config
+.mcp.json
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg
+taiga_ingest.egg-info/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+!.vscode/extensions.json
+
+# Test / coverage
+.coverage
+htmlcov/
+.tox/

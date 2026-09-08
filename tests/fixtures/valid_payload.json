@@ -1,0 +1,62 @@
+{
+  "project_slug": "demo-app",
+  "velocity": {
+    "sprint_capacity_points": 10,
+    "notes": "Default team velocity for fixture tests"
+  },
+  "sprints": [
+    {
+      "name": "Sprint 1",
+      "estimated_start": "2026-08-04",
+      "estimated_finish": "2026-08-17"
+    }
+  ],
+  "epics": [
+    {
+      "temp_id": "E1",
+      "subject": "User authentication",
+      "description": "Theme: sign-up, login, and session handling for the demo app.",
+      "stories": [
+        {
+          "temp_id": "US1",
+          "subject": "As a registered user, I want to log in with email and password, so that I can access my account securely.",
+          "description": "WARNING: [HUMAN REVIEW NEEDED] — THIS TICKET WAS GENERATED FROM UNDERSPECIFIED INPUT AND REQUIRES HUMAN REVIEW FOR ACCURACY BEFORE WORK BEGINS.\n\nImplement email/password login against the existing user store.\n\n## Acceptance Criteria\n\n- [ ] Valid credentials create a session\n- [ ] Invalid credentials return a clear error without leaking whether the email exists\n- [ ] Successful login redirects to the home dashboard",
+          "needs_human_review": true,
+          "points": 5,
+          "sprint_name": "Sprint 1",
+          "tasks": [
+            {
+              "temp_id": "T1",
+              "subject": "Add login API endpoint",
+              "description": "POST /api/auth/login with email and password validation."
+            },
+            {
+              "temp_id": "T2",
+              "subject": "Wire login form to API",
+              "description": "Connect frontend login form; show field-level errors."
+            }
+          ]
+        },
+        {
+          "temp_id": "US2",
+          "subject": "As a user, I want to log out, so that my session ends on shared devices.",
+          "description": "End the authenticated session and clear client credentials.\n\n## Acceptance Criteria\n\n- [ ] Logout invalidates the server session\n- [ ] Client is redirected to the login page",
+          "needs_human_review": false,
+          "points": 2,
+          "sprint_name": "Sprint 1",
+          "tasks": [
+            {
+              "temp_id": "T3",
+              "subject": "Implement logout endpoint and UI control",
+              "description": "DELETE/POST logout plus navbar button."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "warnings": [
+    "US1 marked for human review due to underspecified auth provider details in source notes."
+  ],
+  "summary": "One epic (auth) with login + logout stories in Sprint 1 (7 points)."
+}
