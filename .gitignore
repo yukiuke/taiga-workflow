@@ -36,3 +36,8 @@ Thumbs.db
 .coverage
 htmlcov/
 .tox/
+
+# Plans
+.cursor/plans
+docs/
+.plan/
